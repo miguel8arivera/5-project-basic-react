@@ -16,23 +16,34 @@ const Todo = ({ todo, onUpdateTodo, onDelete }) => {
       setIsEdit(false);
     };
     return (
-      <form>
-        <input type="text" value={newValue} onChange={handleChange} />
-        <button onClick={handleUpdateTask}>Update</button>
+      <form className="todoUpdateForm">
+        <input
+          className="todoInput"
+          type="text"
+          value={newValue}
+          onChange={handleChange}
+        />
+        <button className="button" onClick={handleUpdateTask}>
+          Update
+        </button>
       </form>
     );
   };
   const TodoElement = () => {
     return (
-      <div>
-        <span>{todo.title}</span>
-        <button onClick={() => setIsEdit(true)}>Edit</button>
-        <button onClick={() => onDelete(todo.id)}>Delete</button>
+      <div className="todoInfo">
+        <span className="todoTitle">{todo.title}</span>
+        <button className="button" onClick={() => setIsEdit(true)}>
+          Edit
+        </button>
+        <button className="buttonDelete" onClick={() => onDelete(todo.id)}>
+          Delete
+        </button>
       </div>
     );
   };
 
-  return <div>{isEdit ? <FormEdit /> : <TodoElement />}</div>;
+  return <div className="todo">{isEdit ? <FormEdit /> : <TodoElement />}</div>;
 };
 
 export default Todo;

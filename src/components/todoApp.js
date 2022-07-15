@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Todo from "./todo";
+import "./todoApp.css";
 
 const TodoApp = () => {
   const [title, setTitle] = useState("create task");
@@ -38,13 +39,23 @@ const TodoApp = () => {
     setTodos(temp);
   };
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input type="text" value={title} onChange={handleChange} />
-        <input type="submit" value="Create Task" onClick={handleSubmit} />
+    <div className="todoContainer">
+      <form className="todoCreateForm" onSubmit={handleSubmit}>
+        <input
+          className="todoInput"
+          type="text"
+          value={title}
+          onChange={handleChange}
+        />
+        <input
+          className="buttonCreate"
+          type="submit"
+          value="Create Task"
+          onClick={handleSubmit}
+        />
       </form>
 
-      <div>
+      <div className="todosContainer">
         {todos.map((todo, id) => (
           <Todo
             key={id}
